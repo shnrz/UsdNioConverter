@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Convertidor dólares/córdobas</title>
+</head>
+<body>
+   <h1>Convertidor dólares/córdobas</h1>
+   <p>Tipo de cambio actual: <strong>{{exchange_rate}}</strong></p>
+   <form method="post">
+      <p>Seleccione el tipo de conversión:</p>
+      <input type="radio" name="operation" id="usdnio" value="usdnio" required />
+      <label for="usdnio">US$ ---> C$</label><br />
+      <input type="radio" name="operation" id="niousd" value="niousd" required />
+      <label for="niousd">C$ ---> US$</label><br />
+      <p>
+         <label for="amount">Monto</label>
+         <input type="text" name="amount" id="amount" />
+      </p>
+      <p><input type="submit" value="Convertir" /></p>
+   </form>
+</body>
+</html>
