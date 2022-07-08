@@ -1,3 +1,4 @@
+var input = document.getElementById("amount");
 var input_label = document.getElementById("amount-label");
 var result_label = document.getElementById("result-label");
 var rate = document.getElementById("rate");
@@ -28,4 +29,5 @@ function handleRadioClick() {
       input_label.innerText = "Monto: (NIO C$ córdobas)";
       result_label.innerText = "Equivalente a: (USD $ dólares)";
    }
+   handleInput(parseFloat(input.value));
 }
