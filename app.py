@@ -37,18 +37,21 @@ def homepage():
          usd_amount = round(float(nio_amount) / rate, 2)
          return render_template("result.html", exchange_rate=rate, usd="US$ {:,.2f}".format(usd_amount), nio="C$ {:,.2f}".format(float(nio_amount)), current_date=date.today().strftime("%d-%b-%Y"))
    else:
-      return render_template("index.html", exchange_rate=rate, current_date=date.today().strftime("%d-%b-%Y"))
+      global latest_update
+      return render_template("index.html", exchange_rate=rate, current_date=latest_update.strftime("%d-%b-%Y"))
 
 @app.route("/usdtonio/<usd>")
 def usd_convert(usd):
    rate = get_rate()
+   global latest_update
    usd_amount = float(usd)
    nio_amount = round(float(usd_amount) * rate, 2)
-   return render_template("result.html", exchange_rate=rate, usd="US$ {:,.2f}".format(usd_amount), nio="C$ {:,.2f}".format(nio_amount), current_date=date.today().strftime("%d-%b-%Y"))
+   return render_template("result.html", exchange_rate=rate, usd="US$ {:,.2f}".format(usd_amount), nio="C$ {:,.2f}".format(nio_amount), current_date=latest_update.strftime("%d-%b-%Y"))
 
 @app.route("/niotousd/<nio>")
 def nio_convert(nio):
    rate = get_rate()
+   global latest_update
    nio_amount = float(nio)
    usd_amount = round(float(nio_amount) / rate, 2)
-   return render_template("result.html", exchange_rate=rate, usd="US$ {:,.2f}".format(float(usd_amount)), nio="C$ {:,.2f}".format(nio_amount), current_date=date.today().strftime("%d-%b-%Y"))
+   return render_template("result.html", exchange_rate=rate, usd="US$ {:,.2f}".format(float(usd_amount)), nio="C$ {:,.2f}".format(nio_amount), current_date=latest_update.strftime("%d-%b-%Y"))
