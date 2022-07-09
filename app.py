@@ -38,7 +38,7 @@ def homepage():
          return render_template("result.html", exchange_rate=rate, usd="US$ {:,.2f}".format(usd_amount), nio="C$ {:,.2f}".format(float(nio_amount)), latest_update=date.today().strftime("%d-%b-%Y"))
    else:
       global latest_update
-      return render_template("index.html", exchange_rate=rate, latest_update=latest_update.strftime("%d-%b-%Y"))
+      return render_template("index.html", exchange_rate="{0:.4f}".format(rate), latest_update=latest_update.strftime("%d-%b-%Y"))
 
 @app.route("/usdtonio/<usd>")
 def usd_convert(usd):
