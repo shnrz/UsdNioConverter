@@ -2,16 +2,23 @@ var input = document.getElementById("amount");
 var input_label = document.getElementById("amount-label");
 var result_label = document.getElementById("result-label");
 var rate = document.getElementById("rate");
+var usdnio = document.getElementById("usdnio");
+var niousd = document.getElementById("niousd");
+
+function formatToCurrency(num){
+   return (num).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+}
 
 function handleInput(val) {
    var result = document.getElementById("result");
    if (!isNaN(val) && val != null && val != "" && val > 0) {
-      var usdnio = document.getElementById("usdnio");
-      var niousd = document.getElementById("niousd");
+      // var amount = parseFloat(val.replace(",",""));
+      // input.value = formatToCurrency(amount);
+      let formatter = new Intl.NumberFormat('en-US', { localeMatcher: 'best fit', maximumFractionDigits: 2 });
       if (usdnio.checked) {
-         result.value = (parseFloat(val) * parseFloat(rate.innerText)).toFixed(2).toString();
+         result.value = formatter.format((parseFloat(val) * parseFloat(rate.innerText)));
       } else if (niousd.checked) {
-         result.value = (parseFloat(val) / parseFloat(rate.innerText)).toFixed(2).toString();
+         result.value = formatter.format((parseFloat(val) / parseFloat(rate.innerText)));
       }
    } else {
       result.value = "0";
