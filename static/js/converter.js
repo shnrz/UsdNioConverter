@@ -5,9 +5,9 @@ var rate = document.getElementById("rate");
 var usdnio = document.getElementById("usdnio");
 var niousd = document.getElementById("niousd");
 
-function formatToCurrency(num){
-   return (num).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-}
+// function formatToCurrency(num){
+//    return (num).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+// }
 
 function handleInput(val) {
    var result = document.getElementById("result");
