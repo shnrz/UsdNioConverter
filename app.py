@@ -15,7 +15,8 @@ def get_rate():
    global latest_rate
    if (latest_update < date.today()):
       print('Fetching fresh date from BCN.gob.ni ...')
-      bcn_source = requests.request("GET", "https://www.bcn.gob.ni/").content
+      bcn_source = requests.get("https://www.bcn.gob.ni/", verify=False).content
+      # bcn_source = requests.request("GET", "https://www.bcn.gob.ni/").content
       soup = BeautifulSoup(bcn_source, 'html.parser')
       table_cell = soup.select("#economicos tr:nth-of-type(5) td:nth-of-type(1)")[0]
       cell_value = table_cell.get_text()
