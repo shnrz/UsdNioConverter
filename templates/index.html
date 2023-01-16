@@ -17,7 +17,7 @@
          <img src="{{url_for('static', filename='img/usa_flag.png')}}" alt="USA flag" style="max-height: 5vh; width: auto;" />
       </div>
       <p>Tipo de cambio oficial: <strong class="bg-warning px-2" id="rate">{{exchange_rate}}</strong><br />
-         <em style="font-size: 0.8em;">(actualizado al {{latest_update}} con base en el sitio web del <a href="https://bcn.gob.ni" target="_blank">Banco Central de Nicaragua</a>)</em>
+         <em style="font-size: 0.8em;">(actualizado al {{latest_update}} con base en el sitio web del <a href="{{source_url}}" target="_blank">{{source}}</a>)</em>
       </p>
       <p>Seleccione el tipo de conversión:</p>
 
