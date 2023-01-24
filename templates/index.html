@@ -21,32 +21,33 @@
       </p>
       <p>Seleccione el tipo de conversión:</p>
 
-      <div class="form-check">
-         <input class="form-check-input" type="radio" name="operation" id="usdnio" value="usdnio" required />
-         <label class="form-check-label" for="usdnio">US$ ---> C$</label><br />
-      </div>
-      <div class="form-check">
-         <input class="form-check-input" type="radio" name="operation" id="niousd" value="niousd" required />
-         <label class="form-check-label" for="niousd">C$ ---> US$</label><br />
-      </div>
-
-      <div class="row justify-content-start">
-         <div class="col-12 col-md-4">
-            <p class="pt-3">
-               <label class="form-label" for="amount" id="amount-label">Monto:</label>
-               <!-- <input class="form-control" type="number" min="0" step="0.01" name="amount" id="amount" value="0" oninput="handleInput(this.value)" /> -->
-               <input class="form-control" type="number" min="0" step="0.01" name="amount" id="amount" oninput="handleInput(this.value)" />
-            </p>
+      <form action="/" method="GET">
+         <div class="form-check">
+            <input class="form-check-input" type="radio" name="operation" id="usdnio" value="usdnio" required />
+            <label class="form-check-label" for="usdnio">US$ ---> C$</label><br />
          </div>
-      </div>
-      <!-- <form name="Form"></form> -->
-      <div class="row justify-content-start">
-         <div class="col-12 col-md-4">
-            <p class="pt-3">
-               <label class="form-label" for="amount" id="result-label">Equivalente a:</label>
-               <input class="form-control" type="text" name="result" id="result" value="0" readonly />
-            </p>
+         <div class="form-check">
+            <input class="form-check-input" type="radio" name="operation" id="niousd" value="niousd" required />
+            <label class="form-check-label" for="niousd">C$ ---> US$</label><br />
          </div>
+         <div class="row justify-content-start">
+            <div class="col-12 col-md-4">
+               <p class="pt-3">
+                  <label class="form-label" for="amount" id="amount-label">Monto:</label>
+                  <!-- <input class="form-control" type="number" min="0" step="0.01" name="amount" id="amount" value="0" oninput="handleInput(this.value)" /> -->
+                  <input class="form-control" type="number" min="0" step="0.01" name="amount" id="amount" oninput="handleInput(this.value)" />
+               </p>
+            </div>
+         </div>
+         <!-- <form name="Form"></form> -->
+         <div class="row justify-content-start">
+            <div class="col-12 col-md-4">
+               <p class="pt-3">
+                  <label class="form-label" for="amount" id="result-label">Equivalente a:</label>
+                  <input class="form-control" type="text" name="result" id="result" value="0" readonly />
+               </p>
+            </div>
+      </form>
       </div>
 
    </div>
