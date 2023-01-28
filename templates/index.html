@@ -9,32 +9,31 @@
    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}" />
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
-<body>
+<body class="bg-dark">
    <div class="container py-5 px-4 vh-75">
-      <h1 class="mb-4">Convertidor dólares/córdobas</h1>
+      <h1 class="mb-4 text-white">Convertidor dólares/córdobas</h1>
       <div class="row pt-0 mt-0 pb-3">
-         <img src="{{url_for('static', filename='img/nica_flag.png')}}" alt="Nicaragua flag" style="max-height: 5vh; width: auto;" />
-         <img src="{{url_for('static', filename='img/usa_flag.png')}}" alt="USA flag" style="max-height: 5vh; width: auto;" />
+         <img src="https://usd-nio-converter.vercel.app/static/img/nica_flag.png" alt="Nicaragua flag" style="max-height: 5vh; width: auto;" />
+         <img src="https://usd-nio-converter.vercel.app/static/img/usa_flag.png" alt="USA flag" style="max-height: 5vh; width: auto;" />
       </div>
-      <p>Tipo de cambio oficial: <strong class="bg-warning px-2" id="rate">{{exchange_rate}}</strong><br />
-         <em style="font-size: 0.8em;">(actualizado al {{latest_update}} con base en el sitio web del <a href="{{source_url}}" target="_blank">{{source}}</a>)</em>
+      <p class="text-white">Tipo de cambio oficial: <strong class="bg-warning text-black px-2" id="rate">{{exchange_rate}}</strong><br />
+         <em class="text-dark-emphasis" style="font-size: 0.8em;">(actualizado al {{latest_update}} con base en el sitio web del <a href="{{source_url}}" target="_blank" class="link-info">{{source}}</a>)</em>
       </p>
-      <p>Seleccione el tipo de conversión:</p>
+      <p class="text-white">Seleccione el tipo de conversión:</p>
 
       <form action="/" method="GET">
          <div class="form-check">
             <input class="form-check-input" type="radio" name="operation" id="usdnio" value="usdnio" required />
-            <label class="form-check-label" for="usdnio">US$ ---> C$</label><br />
+            <label class="form-check-label text-white-50" for="usdnio">US$ ---> C$</label><br />
          </div>
          <div class="form-check">
             <input class="form-check-input" type="radio" name="operation" id="niousd" value="niousd" required />
-            <label class="form-check-label" for="niousd">C$ ---> US$</label><br />
+            <label class="form-check-label text-white-50" for="niousd">C$ ---> US$</label><br />
          </div>
          <div class="row justify-content-start">
             <div class="col-12 col-md-4">
                <p class="pt-3">
-                  <label class="form-label" for="amount" id="amount-label">Monto:</label>
-                  <!-- <input class="form-control" type="number" min="0" step="0.01" name="amount" id="amount" value="0" oninput="handleInput(this.value)" /> -->
+                  <label class="form-label text-white" for="amount" id="amount-label">Monto:</label>
                   <input class="form-control" type="number" min="0" step="0.01" name="amount" id="amount" oninput="handleInput(this.value)" />
                </p>
             </div>
@@ -43,8 +42,8 @@
          <div class="row justify-content-start">
             <div class="col-12 col-md-4">
                <p class="pt-3">
-                  <label class="form-label" for="amount" id="result-label">Equivalente a:</label>
-                  <input class="form-control" type="text" name="result" id="result" value="0" readonly />
+                  <label class="form-label text-white" for="amount" id="result-label">Equivalente a:</label>
+                  <input class="form-control bg-black text-warning" type="text" name="result" id="result" value="0" readonly />
                </p>
             </div>
       </form>
