@@ -57,14 +57,28 @@ def homepage():
    source = rate_results['source']
    source_url = rate_results['source_url']
    if (request.args.get('operation') != None and request.args.get('amount') != None):
+      print('Received GET parameters!')
       operation = request.args.get('operation')
       amount = request.args.get('amount')
+      float_amount = float(amount)
       if (operation == 'usdnio'):
          usd_amount = float(amount)
          nio_amount = round(float(usd_amount) * rate, 2)
       if (operation == 'niousd'):
          nio_amount = float(amount)
          usd_amount = round(float(nio_amount) / rate, 2)
-      return render_template("result.html", exchange_rate=rate, usd="US$ {:,.2f}".format(usd_amount), nio="C$ {:,.2f}".format(nio_amount), latest_update=latest_update.strftime("%d-%b-%Y"),source=source,source_url=source_url)
+      return render_template("index.html",
+         exchange_rate=rate,
+         amount=float_amount,
+         radio_value=operation,
+         latest_update=latest_update.strftime("%d-%b-%Y"),
+         source=source,
+         source_url=source_url)
+      # return render_template("result.html", exchange_rate=rate, usd="US$ {:,.2f}".format(usd_amount), nio="C$ {:,.2f}".format(nio_amount), latest_update=latest_update.strftime("%d-%b-%Y"),source=source,source_url=source_url)
    else:
-      return render_template("index.html", exchange_rate="{0:.4f}".format(rate), latest_update=latest_update.strftime("%d-%b-%Y"), source=source, source_url=source_url)
+      print('No parameters ')
+      return render_template("index.html",
+         exchange_rate="{0:.4f}".format(rate),
+         latest_update=latest_update.strftime("%d-%b-%Y"),
+         source=source,
+         source_url=source_url)

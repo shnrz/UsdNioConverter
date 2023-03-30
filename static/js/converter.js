@@ -4,6 +4,7 @@ var result_label = document.getElementById("result-label");
 var rate = document.getElementById("rate");
 var usdnio = document.getElementById("usdnio");
 var niousd = document.getElementById("niousd");
+var footnote = document.getElementById("footnote");
 
 // function formatToCurrency(num){
 //    return (num).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
@@ -38,3 +39,5 @@ function handleRadioClick() {
    }
    handleInput(parseFloat(input.value));
 }
+
+handleRadioClick();
